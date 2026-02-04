@@ -1,8 +1,13 @@
-import { Slot, Tabs } from "expo-router";
-import { Image } from "react-native";
-import { images } from "@/constants";
+import { Redirect, Slot, Tabs } from "expo-router";
+// import { Image } from "react-native";
+// import { images } from "@/constants";
+
+
 
 export default function TabLayout() {
+  const isAuthenticated = false;
+
+  if (!isAuthenticated) return <Redirect href="/sign-in" />
   return <Slot />
   // return ( 
   //   <Tabs 

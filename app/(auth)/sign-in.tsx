@@ -5,8 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function SignIn() {
   return (
-    <SafeAreaView>
-        <Button title="" onPressIn={()=>router.push("/(auth)/sign-in")}></Button>
-    </SafeAreaView>
+    <View className='gap-10 bg-white rounded-lg p-5'>
+
+    </View>
   )
 }
