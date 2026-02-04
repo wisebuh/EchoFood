@@ -1,31 +1,44 @@
-import { Tabs } from "expo-router"
+import { Slot, Tabs } from "expo-router";
+import { Image } from "react-native";
+import { images } from "@/constants";
+
 export default function TabLayout() {
-  return (
-    <Tabs screenOptions={{
-        tabBarActiveTintColor:"blue",
-        tabBarInactiveTintColor:"green",
-        tabBarStyle:{
-            backgroundColor:"#fff",
-            height:90,
-            paddingTop:30,
-            paddingBottom:10,
-            borderTopColor:"blue",
-            borderTopWidth:1
-        },
-        tabBarLabelStyle:{
-            fontSize:20,
-            fontFamily:"Arial",
-            fontWeight:"600"
-        },
-        headerShown:false
-        }}>
-        <Tabs.Screen
-        name="index"
-        options={{title:"Home",
-          // tabBarIcon:()=>{
-          //   null
-          // }
-        }}/>
-    </Tabs>
-  )
+  return <Slot />
+  // return ( 
+  //   <Tabs 
+  //     screenOptions={{
+  //       tabBarActiveTintColor: "blue",
+  //       tabBarInactiveTintColor: "green",
+  //       tabBarStyle: {
+  //         backgroundColor: "#fff",
+  //         height: 90,
+  //         paddingTop: 30,
+  //         paddingBottom: 10,
+  //         borderTopColor: "blue",
+  //         borderTopWidth: 1,
+  //       },
+  //       tabBarLabelStyle: {
+  //         fontSize: 20,
+  //         fontFamily: "Arial",
+  //         fontWeight: "600",
+  //       },
+  //       headerShown: false,
+  //     }}
+  //   >
+  //     <Tabs.Screen
+  //       name="index"
+  //       options={{
+  //         title: "Home",
+  //         tabBarIcon: ({ focused }) => (
+  //           <Image 
+  //             source={images.home}
+  //             className="size-10"
+  //             resizeMode="contain"
+  //             tintColor={focused ? "blue" : "green"}
+  //           />
+  //         ),
+  //       }}
+  //     />
+  //   </Tabs>
+  // );
 }
