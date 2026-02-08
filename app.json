@@ -47,7 +47,8 @@
           "project": "react-native",
           "organization": "self-fxk"
         }
-      ]
+      ],
+      "@sentry/react-native"
     ],
     "experiments": {
       "typedRoutes": true,

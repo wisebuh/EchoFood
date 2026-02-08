@@ -4,6 +4,7 @@ import CustomInput from '@/components/CustomEntry'
 import CustomButton from '@/components/CustomButton'
 import { useState } from 'react'
 import { signIn } from '@/lib/appwrite'
+import sentry from "@sentry/react-native"
 export default function SignIn() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({email:"", password:""});
@@ -20,6 +21,7 @@ export default function SignIn() {
       router.replace("/")
     }catch(error:any){
       Alert.alert("Error", error.message)
+      sentry.captureEvent(error);
     }finally{
       setIsSubmitting(false)
     }

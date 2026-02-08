@@ -1,5 +1,5 @@
 import { Account, Avatars, Client, Databases, ID, Query } from "react-native-appwrite";
-import { CreateUserPrams, SignInParams } from "@/type";
+import { CreateUserPrams, SignInParams, User } from "@/type";
 
 export const appwriteConfig = {
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
@@ -50,21 +50,50 @@ try{
 }
 }
 
-export const getCurrentUser = async()=>{
-    try{
-        const CurrentAccount = await account.get();
+export const getCurrentUser = async (): Promise<User | null> => {
+    try {
+        const currentAccount = await account.get();
 
-        if(!CurrentAccount) throw Error;
+        if (!currentAccount) throw new Error('No account found');
 
-        const currentUser = await databases.listDocuments(
+        const currentUser = await databases.listDocuments<User>(
             appwriteConfig.databaseId,
             appwriteConfig.userCollectionId,
-            [Query.equal('accountId', CurrentAccount.$id)]
-        )
-        if (!currentUser) throw Error;
+            [Query.equal('accountId', currentAccount.$id)]
+        );
+        
+        if (!currentUser || currentUser.documents.length === 0) {
+            return null;
+        }
 
         return currentUser.documents[0];
-    }catch(e){
-        throw new Error (e as string)
+    } catch (e) {
+        console.error('getCurrentUser error:', e);
+        return null;
     }
 }
+
+
+
+// xport const getCurrentUser = async (): Promise<User | null> => {
+//     try {
+//         const currentAccount = await account.get();
+
+//         if (!currentAccount) throw new Error('No account found');
+
+//         const currentUser = await databases.listDocuments(
+//             appwriteConfig.databaseId,
+//             appwriteConfig.userCollectionId,
+//             [Query.equal('accountId', currentAccount.$id)]
+//         );
+        
+//         if (!currentUser || currentUser.documents.length === 0) {
+//             return null;
+//         }
+
+//         return currentUser.documents[0] as User;
+//     } catch (e) {
+//         console.error('getCurrentUser error:', e);
+//         return null; // Return null instead of throwing
+//     }
+// }
