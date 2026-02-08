@@ -3,6 +3,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { images, offers } from "@/constants";
 import CartButton from "@/components/CartButton";
 import cn from "clsx";
+import { Fragment } from "react";
+import { Button } from "@react-navigation/elements";
 
 export default function App() {
   return (
@@ -56,6 +58,15 @@ export default function App() {
           );
         }}
         contentContainerClassName="pb-28 px-5"
+        // ListHeaderComponent = {()=>("")}
+        // ListFooterComponent={()=>(
+        //   <Fragment>
+        //     <Button
+        //     title="Try"
+        //     onPress = {()=>""}
+        //     />
+        //   </Fragment>
+        // )}
         
       />
     </SafeAreaView>
