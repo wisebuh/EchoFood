@@ -7,7 +7,7 @@ import { View, KeyboardAvoidingView, Platform, ScrollView, Dimensions, ImageBack
 export default function AuthLayout() {
   const {isAuthenticated} = useAuthStore();
 
-  if (isAuthenticated) return <Redirect href="/" />
+  if (isAuthenticated) return <Redirect href="/(tabs)" />
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios"? "padding":"height"}>
       <ScrollView className='bg-white h-full' keyboardShouldPersistTaps="handled">

@@ -65,7 +65,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          
+          title:"home",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon 
             focused={focused}
@@ -79,7 +79,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          
+          title:"search",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon 
             focused={focused}
@@ -98,7 +98,6 @@ export default function TabLayout() {
         options={{
           title:"Cart",
           tabBarIcon: ({ focused }) => (
-           
             <TabBarIcon 
             focused={focused}
             title="Cart"
@@ -117,7 +116,7 @@ export default function TabLayout() {
             <Tabs.Screen
         name="profile"
         options={{
-          
+          title:"profile",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon 
             focused={focused}
